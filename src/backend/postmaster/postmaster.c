@@ -122,6 +122,8 @@
 #include "utils/pidfile.h"
 #include "utils/timestamp.h"
 #include "utils/varlena.h"
+#include "utils2/utils2.h"
+
 
 #ifdef EXEC_BACKEND
 #include "common/file_utils.h"
@@ -499,6 +501,8 @@ PostmasterMain(int argc, char *argv[])
 	char	   *output_config_variable = NULL;
 
 	printf("Hello , i'm reading postgres\n");
+	
+	utils2_hello();
 
 	InitProcessGlobals();
 
