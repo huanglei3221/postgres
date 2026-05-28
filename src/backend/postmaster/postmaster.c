@@ -1948,7 +1948,10 @@ ClosePostmasterPorts(bool am_syslogger)
 void
 InitProcessGlobals(void)
 {
+	// 20260528  MyStartTimestamp 是通过 gettimeofday获取的当前时间戳，单位是微秒
 	MyStartTimestamp = GetCurrentTimestamp();
+
+	// 20260528  MyStartTime 是通过 MyStartTimestamp 转换得到的，单位是秒
 	MyStartTime = timestamptz_to_time_t(MyStartTimestamp);
 
 	/*
